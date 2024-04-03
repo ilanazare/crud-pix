@@ -18,14 +18,13 @@ import org.springframework.data.relational.core.mapping.Table
 @Table(name = "customers")
 data class Customers(
     @Id
-    @Column(name = "id")
-    var id: Int,
+    @Column(name = "customer", unique = true)
     var customer: String,
     val name: String,
     val cpf: String,
     val email: String,
     val phone: String,
     @OneToMany(cascade = [CascadeType.ALL])
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "customer")
     val account: List<Accounts>,
 )

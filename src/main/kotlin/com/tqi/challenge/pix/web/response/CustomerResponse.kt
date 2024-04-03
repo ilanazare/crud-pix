@@ -5,7 +5,6 @@ import lombok.Data
 
 @Data
 data class CustomerResponse(
-    val id: Int,
     val customer: String,
     val name: String,
     val cpf: String,

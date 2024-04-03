@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RestController
 class CustomerController(
     val service: CustomerService,
 ) {
-    @GetMapping("/customer/{id}")
+    @GetMapping("/customer/{customer}")
     fun findCustomerByCustomer(
-        @PathVariable id: Int,
-    ): CustomerResponse = service.findCustomerById(id)
+        @PathVariable customer: String,
+    ): CustomerResponse = service.findCustomerBuCustomer(customer)
 
 //    @GetMapping("/customer/customer_info/{customer}")
 //    fun findCustomerInfoByCustomer(

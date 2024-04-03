@@ -1,13 +1,12 @@
 CREATE DATABASE IF NOT EXISTS challenge;
 
 CREATE TABLE customers (
-    id INT  AUTO_INCREMENT                           NOT NULL   ,
     customer                      VARCHAR(50)        NOT NULL   ,
     name                          VARCHAR(40)        NOT NULL   ,
     cpf                           VARCHAR(20)        NOT NULL   ,
     email                         VARCHAR(30)        NOT NULL   ,
     phone                         VARCHAR(15)        NOT NULL   ,
-    PRIMARY KEY (id)
+    PRIMARY KEY (customer)
 ) ENGINE = InnoDB;
 
 insert into customers(customer, name, cpf, email, phone) values ('23454345090', 'iva luis', '77872339587', 'iva@hotmail', '71984376654');

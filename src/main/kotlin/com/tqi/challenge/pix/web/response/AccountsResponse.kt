@@ -5,10 +5,10 @@ import lombok.Data
 
 @Data
 data class AccountsResponse(
-    val id: Int,
     val customer: String,
     val bank: String,
     val agency: String,
     val account: String,
-    val infoKey: List<InfoKey>,
+    val pixType: String,
+    val pixKey: String
 )

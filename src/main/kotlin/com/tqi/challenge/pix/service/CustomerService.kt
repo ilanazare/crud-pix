@@ -14,7 +14,7 @@ class CustomerService(
     @Autowired
     val database: CustomerRepository,
 ) {
-    fun findCustomerById(id: Int): CustomerResponse = database.findCustomerById(id).toCustomerResponse()
+    fun findCustomerBuCustomer(customer: String): CustomerResponse = database.findCustomerByCustomer(customer).toCustomerResponse()
 
 //    fun findCustomerInfoByCustomer(customer: String): List<CustomerInfoDTO> = database.findCustomersAndAccountsByCustomer(customer)
 

@@ -5,7 +5,6 @@ import com.tqi.challenge.pix.web.response.CustomerResponse
 
 fun Customers.toCustomerResponse(): CustomerResponse =
     CustomerResponse(
-        id = this.id,
         customer = this.customer,
         name = this.name,
         cpf = this.cpf,
