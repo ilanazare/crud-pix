@@ -3,9 +3,7 @@ package com.tqi.challenge.pix.web.response
 import lombok.Data
 
 @Data
-data class InfoKeyResponse(
-    val id: Int,
-    val customer: String,
+data class PaymentResponse(
     val account: String,
     val pixType: String?,
     val pixKey: String?,

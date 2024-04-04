@@ -12,7 +12,7 @@ import org.springframework.data.relational.core.mapping.Table
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "payment")
+@Table(name = "info")
 data class Payment(
     @Id
     @Column(name = "account")

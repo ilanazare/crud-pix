@@ -1,6 +1,5 @@
 package com.tqi.challenge.pix.web.response
 
-import com.tqi.challenge.pix.entity.InfoKey
 import lombok.Data
 
 @Data

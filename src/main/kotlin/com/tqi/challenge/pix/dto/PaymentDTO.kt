@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-data class InfoKeyDTO(
+data class PaymentDTO(
     val id: Int,
     val customer: String,
     val account: String,

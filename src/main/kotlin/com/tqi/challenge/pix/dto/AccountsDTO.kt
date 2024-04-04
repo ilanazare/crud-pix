@@ -15,5 +15,5 @@ data class AccountsDTO(
     val bank: String,
     val agency: String,
     val account: String,
-    val infoKey: List<InfoKeyDTO>,
+    val infoKey: List<PaymentDTO>,
 )
