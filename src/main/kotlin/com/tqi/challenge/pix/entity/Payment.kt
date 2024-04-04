@@ -12,10 +12,11 @@ import org.springframework.data.relational.core.mapping.Table
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "info")
+@Table(name = "payment")
 data class Payment(
     @Id
-    @Column(name = "account")
+    @Column(name = "customer", unique = true)
+    var customer: String,
     val account: String,
     val pixType: String?,
     val pixKey: String?,

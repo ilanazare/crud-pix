@@ -1,8 +1,7 @@
 package com.tqi.challenge.pix.service
 
-import com.tqi.challenge.pix.integretion.response.toInfoKeyResponse
+import com.tqi.challenge.pix.entity.Payment
 import com.tqi.challenge.pix.repository.PaymentRepository
-import com.tqi.challenge.pix.web.response.PaymentResponse
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -11,5 +10,5 @@ class PaymentService(
     @Autowired
     val paymentRepository: PaymentRepository,
 ) {
-    fun findPaymentByAccount(account: String): PaymentResponse = paymentRepository.findPaymentByAccount(account).toInfoKeyResponse()
+    fun findPaymentByCustomer(customer: String): List<Payment> = paymentRepository.findPaymentByCustomer(customer)
 }

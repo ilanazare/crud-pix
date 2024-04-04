@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository
 
 interface PaymentRepository : CrudRepository<Payment, String>
 {
-    fun findPaymentByAccount(account: String): Payment = findPaymentByAccount(account)
+    fun findPaymentByCustomer(customer: String): List<Payment> = findPaymentByCustomer(customer)
 }

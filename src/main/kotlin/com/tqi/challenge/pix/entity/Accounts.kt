@@ -18,6 +18,7 @@ data class Accounts(
     val bank: String,
     val agency: String,
     val account: String,
-    val pixType: String?,
-    val pixKey: String?
+    @OneToMany(cascade = [CascadeType.ALL])
+    @JoinColumn(name = "customer")
+    val payment: List<Payment>
 )
