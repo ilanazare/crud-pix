@@ -4,6 +4,7 @@ import com.tqi.challenge.pix.service.CustomerService
 import com.tqi.challenge.pix.web.request.CustomerRequest
 import com.tqi.challenge.pix.web.request.toCustomerRequest
 import com.tqi.challenge.pix.web.response.CustomerResponse
+import com.tqi.challenge.pix.web.response.GetCustomerResponse
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -17,7 +18,7 @@ class CustomerController(
     @GetMapping("/customer/{customer}")
     fun findCustomerByCustomer(
         @PathVariable customer: String,
-    ): CustomerResponse = service.findCustomerByCustomer(customer)
+    ): GetCustomerResponse = service.findCustomerByCustomer(customer)
 
     @PostMapping("/customer")
     fun create(
