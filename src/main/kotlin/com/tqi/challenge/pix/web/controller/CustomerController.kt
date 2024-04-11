@@ -8,6 +8,7 @@ import com.tqi.challenge.pix.web.response.GetCustomerResponse
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 
@@ -25,5 +26,12 @@ class CustomerController(
         @RequestBody request: CustomerRequest,
     ): CustomerResponse? {
         return service.create(request.toCustomerRequest())
+    }
+
+    @PutMapping
+    fun update(
+        @RequestBody request: CustomerRequest,
+    ): CustomerResponse? {
+        return service.update(request.toCustomerRequest())
     }
 }

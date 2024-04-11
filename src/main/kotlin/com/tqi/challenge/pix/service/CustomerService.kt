@@ -17,4 +17,9 @@ class CustomerService(
     fun findCustomerByCustomer(customer: String): GetCustomerResponse = database.findCustomerByCustomer(customer).toGetCustomerResponse()
 
     fun create(request: Customers): CustomerResponse = database.save(request).toCustomerResponse()
+
+    fun update(request: Customers): CustomerResponse? =
+        database.save(request).toCustomerResponse().takeIf {
+            !findCustomerByCustomer(request.customer).equals(null)
+        } ?: throw Exception()
 }
