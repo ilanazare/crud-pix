@@ -3,17 +3,17 @@ package com.tqi.challenge.pix.web.request
 import com.tqi.challenge.pix.entity.Accounts
 import com.tqi.challenge.pix.entity.Customers
 
-data class RetrieveCustomerRequest(
+data class CustomerRequest(
     val customer: String,
     val name: String,
     val cpf: String,
-    val email: String?,
-    val phone: String?,
-    val account: List<Accounts>?,
+    val email: String,
+    val phone: String,
+    val account: List<Accounts>,
 )
 
-fun Customers.toCustomerRequest(): RetrieveCustomerRequest =
-    RetrieveCustomerRequest(
+fun CustomerRequest.toCustomerRequest() =
+    Customers(
         customer,
         name,
         cpf,

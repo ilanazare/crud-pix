@@ -18,6 +18,6 @@ data class Payment(
     @Column(name = "customer", unique = true)
     var customer: String,
     val account: String,
-    val pixType: String?,
-    val pixKey: String?,
+    val pixType: String,
+    val pixKey: String,
 )

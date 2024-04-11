@@ -17,8 +17,8 @@ data class Accounts(
     val customer: String,
     val bank: String,
     val agency: String,
-    val account: String,
+    var account: String,
     @OneToMany(cascade = [CascadeType.ALL])
     @JoinColumn(name = "customer")
-    val payment: List<Payment>
+    val payment: List<Payment>?,
 )

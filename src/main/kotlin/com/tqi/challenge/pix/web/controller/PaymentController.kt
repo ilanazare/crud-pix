@@ -2,10 +2,8 @@ package com.tqi.challenge.pix.web.controller
 
 import com.tqi.challenge.pix.entity.Payment
 import com.tqi.challenge.pix.service.PaymentService
-import com.tqi.challenge.pix.web.response.PaymentResponse
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RestController
+import io.swagger.v3.oas.annotations.parameters.RequestBody
+import org.springframework.web.bind.annotation.*
 
 @RestController
 class PaymentController(
@@ -14,5 +12,12 @@ class PaymentController(
     @GetMapping("/payment/{customer}")
     fun findPaymentByAccount(
         @PathVariable customer: String,
-    ): List<Payment> = paymentService.findPaymentByCustomer(customer)
+    ): List<Payment> = paymentService.findListPaymentByCustomer(customer)
+
+    @PostMapping("/payment")
+    fun create(
+        @RequestBody request: Payment,
+    ) {
+        return paymentService.create(request)
+    }
 }

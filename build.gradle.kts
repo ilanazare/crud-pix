@@ -10,6 +10,7 @@ plugins {
 
 group = "com.tqi.challenge.pix"
 version = "0.0.1-SNAPSHOT"
+val springCloudVersion = "2023.0.0"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -34,17 +35,22 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.springframework.data:spring-data-relational:3.2.1")
     implementation("org.springframework:spring-webflux:6.1.4")
-//    implementation("io.springfox:springfox-swagger2:2.9.2")
-//    implementation("org.springframework:spring-webmvc:5.0.6.RELEASE")
-//    implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0")
-
+//    implementation("org.springframework.cloud:spring-cloud-contract-wiremock:1.0.0.RELEASE")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("com.mysql:mysql-connector-j")
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.mockk:mockk:1.4.1")
+    testImplementation("org.springframework.cloud:spring-cloud-contract-wiremock")
+    testImplementation("com.github.tomakehurst:wiremock:3.0.1")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion")
+    }
 }
 
 tasks.withType<KotlinCompile> {

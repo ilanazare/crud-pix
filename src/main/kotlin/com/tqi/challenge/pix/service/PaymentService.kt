@@ -10,5 +10,14 @@ class PaymentService(
     @Autowired
     val paymentRepository: PaymentRepository,
 ) {
-    fun findPaymentByCustomer(customer: String): List<Payment> = paymentRepository.findPaymentByCustomer(customer)
+    fun findListPaymentByCustomer(customer: String): List<Payment> = paymentRepository.findListPaymentByCustomer(customer)
+
+    fun updatePaymentByCustomer(entity: Payment): Payment {
+        if (paymentRepository.findPaymentByCustomer(entity.customer).equals(null)) {
+            paymentRepository.save(entity)
+        }
+        throw Exception()
+    }
+
+    fun create(entity: Payment): Unit = paymentRepository.save(entity)
 }
