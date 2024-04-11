@@ -1,6 +1,7 @@
 package com.tqi.challenge.pix.service
 
 import com.tqi.challenge.pix.entity.Customers
+import com.tqi.challenge.pix.exception.CustomerNotFoundException
 import com.tqi.challenge.pix.integretion.response.toCustomerResponse
 import com.tqi.challenge.pix.integretion.response.toGetCustomerResponse
 import com.tqi.challenge.pix.repository.CustomerRepository
@@ -20,6 +21,6 @@ class CustomerService(
 
     fun update(request: Customers): CustomerResponse? =
         database.save(request).toCustomerResponse().takeIf {
-            !findCustomerByCustomer(request.customer).equals(null)
-        } ?: throw Exception()
+            findCustomerByCustomer(request.customer).equals(request.customer)
+        } ?: throw CustomerNotFoundException("Customer not found")
 }
