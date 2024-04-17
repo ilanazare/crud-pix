@@ -1,11 +1,6 @@
 package com.tqi.challenge.pix
 
 // @ExtendWith(SpringExtension::class)
-// @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-// @AutoConfigureWireMock(
-//    port = 0,
-//    stubs = ["classpath:/stubs"],
-// )
 // @ActiveProfiles("test")
 // abstract class ChallengeCrudPixBaseTest : WebApplicationContext {
 //    @Autowired
@@ -17,7 +12,7 @@ package com.tqi.challenge.pix
 //    @BeforeEach
 //    fun setup() {
 //        this.mockMvc =
-//            MockMvcBuilders.webAppContextSetup(this.context)
+//            MockMvcBuilders.standaloneSetup()
 //                .build()
 //    }
 // }
