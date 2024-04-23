@@ -11,7 +11,7 @@ class AccountService(
     @Autowired
     val accountRepository: AccountRepository,
 ) {
-    fun findAccountByCustomer(customer: String): List<Accounts> = accountRepository.findListAccountByCustomer(customer)
+    fun findListAccountByCustomer(customer: String): List<Accounts> = accountRepository.findListAccountByCustomer(customer)
 
     fun create(request: Accounts): RetrieveAccountRequest {
         if (!accountRepository.findAccountByAccount(request.customer).isPresent) {

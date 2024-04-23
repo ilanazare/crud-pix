@@ -16,7 +16,7 @@ class AccountController(
     @GetMapping("/account/{customer}")
     fun findAccountByCustomer(
         @PathVariable customer: String,
-    ): List<Accounts> = accountService.findAccountByCustomer(customer)
+    ): List<Accounts> = accountService.findListAccountByCustomer(customer)
 
     @PostMapping("/account")
     fun update(
