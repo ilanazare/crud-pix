@@ -8,6 +8,7 @@ import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
+import io.mockk.verify
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import kotlin.test.assertEquals
@@ -29,6 +30,9 @@ class CustomerServiceTest(
 
         val response = customerService.findCustomerByCustomer(customer)
         assertEquals(response.customer, "23454345090")
+        assertEquals(response.account.get(0).account, "5676543-0")
+        response.account.get(0).payment?.get(0)?.let { assertEquals(it.pixKey, "77872339533") }
+        verify { customerRepository.findCustomerByCustomer(customer) }
     }
 
     private fun buildCustomer() =
@@ -55,6 +59,6 @@ class CustomerServiceTest(
             customer = "23454345090",
             account = "23456-8",
             pixType = "CPF",
-            pixKey = "77872339587",
+            pixKey = "77872339533",
         )
 }
