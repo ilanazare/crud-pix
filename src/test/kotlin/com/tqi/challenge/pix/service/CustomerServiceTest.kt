@@ -30,8 +30,8 @@ class CustomerServiceTest(
 
         val response = customerService.findCustomerByCustomer(customer)
         assertEquals(response.customer, "23454345090")
-        assertEquals(response.account.get(0).account, "5676543-0")
-        response.account.get(0).payment?.get(0)?.let { assertEquals(it.pixKey, "77872339533") }
+        assertEquals(response.account[0].account, "5676543-0")
+        response.account[0].payment?.get(0)?.let { assertEquals(it.pixKey, "77872339533") }
         verify { customerRepository.findCustomerByCustomer(customer) }
     }
 
