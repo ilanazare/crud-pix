@@ -1,0 +1,21 @@
+{
+  "request": {
+    "urlPathPattern": "/payment/(23454345090)",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody":
+    [
+      {
+        "customer": "23454345090",
+        "account": "8987769-0",
+        "pixType": "PHONE",
+        "pixKey": "71965654334"
+      }
+    ]
+  }
+}

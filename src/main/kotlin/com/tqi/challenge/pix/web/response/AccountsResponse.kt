@@ -1,5 +1,6 @@
 package com.tqi.challenge.pix.web.response
 
+import com.tqi.challenge.pix.domain.entity.Accounts
 import com.tqi.challenge.pix.domain.entity.Payment
 import lombok.Data
 
@@ -11,3 +12,12 @@ data class AccountsResponse(
     val account: String,
     val payment: List<Payment>?,
 )
+
+fun Accounts.toAccountResponse() =
+    AccountsResponse(
+        customer = this.customer,
+        bank = this.bank,
+        agency = this.agency,
+        account = this.account,
+        payment = this.payment,
+    )

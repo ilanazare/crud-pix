@@ -4,24 +4,19 @@ import com.tqi.challenge.pix.service.CustomerService
 import com.tqi.challenge.pix.web.request.CustomerRequest
 import com.tqi.challenge.pix.web.request.toCustomerRequest
 import com.tqi.challenge.pix.web.response.CustomerResponse
-import com.tqi.challenge.pix.web.response.GetCustomerResponse
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.PutMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
+@RequestMapping("/customer")
 class CustomerController(
     val service: CustomerService,
 ) {
-    @GetMapping("/customer/{customer}")
+    @GetMapping("/{customer}")
     fun findCustomerByCustomer(
         @PathVariable customer: String,
-    ): GetCustomerResponse = service.findCustomerByCustomer(customer)
+    ): CustomerResponse = service.findCustomerByCustomer(customer)
 
-    @PostMapping("/customer")
+    @PostMapping
     fun create(
         @RequestBody request: CustomerRequest,
     ): CustomerResponse? {

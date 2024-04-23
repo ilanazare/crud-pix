@@ -9,5 +9,5 @@ CREATE TABLE customers (
     PRIMARY KEY (customer)
 ) ENGINE = InnoDB;
 
-insert into customers(customer, name, cpf, email, phone) values ('23454345090', 'iva luis', '77872339587', 'iva@hotmail', '71984376654');
-insert into customers(customer, name, cpf, email, phone) values ('90987876765', 'camila', '77834563957', 'camila@hotmail', '7198456654');
+INSERT INTO customers(customer, name, cpf, email, phone) VALUES ('23454345090', 'iva luis', '77872339587', 'iva@hotmail', '71984376654');
+INSERT INTO customers(customer, name, cpf, email, phone) VALUES ('90987876765', 'camila', '77834563957', 'camila@hotmail', '7198456654');

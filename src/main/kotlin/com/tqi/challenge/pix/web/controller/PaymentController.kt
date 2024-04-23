@@ -6,15 +6,16 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody
 import org.springframework.web.bind.annotation.*
 
 @RestController
+@RequestMapping("/payment")
 class PaymentController(
     private val paymentService: PaymentService,
 ) {
-    @GetMapping("/payment/{customer}")
+    @GetMapping("/{customer}")
     fun findPaymentByAccount(
         @PathVariable customer: String,
     ): List<Payment> = paymentService.findListPaymentByCustomer(customer)
 
-    @PostMapping("/payment")
+    @PostMapping
     fun create(
         @RequestBody request: Payment,
     ) {

@@ -1,4 +1,4 @@
-package stubs
+package com.tqi.challenge.pix.mock
 
 import com.github.tomakehurst.wiremock.client.WireMock
 import com.github.tomakehurst.wiremock.stubbing.StubMapping
