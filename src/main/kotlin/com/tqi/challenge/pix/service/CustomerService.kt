@@ -1,6 +1,6 @@
 package com.tqi.challenge.pix.service
 
-import com.tqi.challenge.pix.entity.Customers
+import com.tqi.challenge.pix.domain.entity.Customers
 import com.tqi.challenge.pix.integretion.response.toCustomerResponse
 import com.tqi.challenge.pix.integretion.response.toGetCustomerResponse
 import com.tqi.challenge.pix.repository.CustomerRepository

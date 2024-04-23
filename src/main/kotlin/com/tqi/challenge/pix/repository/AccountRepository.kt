@@ -1,6 +1,6 @@
 package com.tqi.challenge.pix.repository
 
-import com.tqi.challenge.pix.entity.Accounts
+import com.tqi.challenge.pix.domain.entity.Accounts
 import org.springframework.data.repository.CrudRepository
 import java.util.Optional
 

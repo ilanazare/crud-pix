@@ -1,4 +1,4 @@
-package com.tqi.challenge.pix.entity
+package com.tqi.challenge.pix.domain.entity
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity

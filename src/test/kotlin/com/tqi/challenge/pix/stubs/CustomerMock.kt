@@ -1,10 +1,10 @@
-package com.tqi.challenge.pix.mock
+package stubs
 
 import com.github.tomakehurst.wiremock.client.WireMock
 import com.github.tomakehurst.wiremock.stubbing.StubMapping
 import org.springframework.http.HttpStatus
 
-fun stubRetrieveInvoicesSuccess(customer: String): StubMapping =
+fun stubRetrieveCustomerSuccess(customer: String): StubMapping =
     WireMock.stubFor(
         WireMock.get("/account/$customer")
             .willReturn(
@@ -12,7 +12,13 @@ fun stubRetrieveInvoicesSuccess(customer: String): StubMapping =
                     .withStatus(HttpStatus.OK.value())
                     .withBody(
                         """
-                        [
+                        {
+                        "customer": $customer,
+                        "name": "iva luis",
+                        "cpf": "77872339587",
+                        "email": "iva@hotmail",
+                        "phone": "71984376654",
+                        "account": [
                         {
                         "customer": $customer,
                         "bank": "BANCO_DO_BRAZIL",
@@ -26,7 +32,9 @@ fun stubRetrieveInvoicesSuccess(customer: String): StubMapping =
                         "pixKey": "71965654334"
                         }
                         ]
-                        }]
+                        }
+                        ]
+                        }
                         """.trimIndent(),
                     ),
             ),

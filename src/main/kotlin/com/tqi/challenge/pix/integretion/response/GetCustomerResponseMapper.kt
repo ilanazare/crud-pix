@@ -1,6 +1,6 @@
 package com.tqi.challenge.pix.integretion.response
 
-import com.tqi.challenge.pix.entity.Customers
+import com.tqi.challenge.pix.domain.entity.Customers
 import com.tqi.challenge.pix.web.response.GetCustomerResponse
 
 fun Customers.toGetCustomerResponse(): GetCustomerResponse =

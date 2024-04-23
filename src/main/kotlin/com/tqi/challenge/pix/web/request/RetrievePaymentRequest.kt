@@ -1,6 +1,6 @@
 package com.tqi.challenge.pix.web.request
 
-import com.tqi.challenge.pix.entity.Payment
+import com.tqi.challenge.pix.domain.entity.Payment
 import lombok.Data
 
 @Data

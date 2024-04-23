@@ -1,6 +1,6 @@
 package com.tqi.challenge.pix.service
 
-import com.tqi.challenge.pix.entity.Payment
+import com.tqi.challenge.pix.domain.entity.Payment
 import com.tqi.challenge.pix.repository.PaymentRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service

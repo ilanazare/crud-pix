@@ -1,6 +1,6 @@
 package com.tqi.challenge.pix.service
 
-import com.tqi.challenge.pix.entity.Accounts
+import com.tqi.challenge.pix.domain.entity.Accounts
 import com.tqi.challenge.pix.repository.AccountRepository
 import com.tqi.challenge.pix.web.request.RetrieveAccountRequest
 import org.springframework.beans.factory.annotation.Autowired

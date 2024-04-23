@@ -1,7 +1,7 @@
 package com.tqi.challenge.pix.web.request
 
-import com.tqi.challenge.pix.entity.Accounts
-import com.tqi.challenge.pix.entity.Payment
+import com.tqi.challenge.pix.domain.entity.Accounts
+import com.tqi.challenge.pix.domain.entity.Payment
 
 data class RetrieveAccountRequest(
     val customer: String,
