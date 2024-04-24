@@ -1,6 +1,7 @@
 package com.tqi.challenge.pix.service
 
 import com.tqi.challenge.pix.domain.entity.Accounts
+import com.tqi.challenge.pix.exception.ListAccountNotFound
 import com.tqi.challenge.pix.repository.AccountRepository
 import com.tqi.challenge.pix.web.request.RetrieveAccountRequest
 import org.springframework.beans.factory.annotation.Autowired
@@ -11,7 +12,11 @@ class AccountService(
     @Autowired
     val accountRepository: AccountRepository,
 ) {
-    fun findListAccountByCustomer(customer: String): List<Accounts> = accountRepository.findListAccountByCustomer(customer)
+    fun findListAccountByCustomer(customer: String) =
+        accountRepository.findListAccountByCustomer(customer)
+            .takeIf {
+                it.isNotEmpty()
+            } ?: ListAccountNotFound("List account not found for $customer")
 
     fun create(request: Accounts): RetrieveAccountRequest {
         if (!accountRepository.findAccountByAccount(request.customer).isPresent) {
@@ -19,9 +24,4 @@ class AccountService(
         }
         throw Exception()
     }
-
-//    fun filterAccountIsEmpty(customer: String) =
-//        accountRepository.findAccountByCustomer(customer).filter {
-//            it.account.isNotBlank()
-//        }.takeIf { it.isEmpty() }
 }

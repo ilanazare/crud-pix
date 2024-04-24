@@ -14,7 +14,7 @@ class CustomerController(
     @GetMapping("/{customer}")
     fun findCustomerByCustomer(
         @PathVariable customer: String,
-    ): CustomerResponse = service.findCustomerByCustomer(customer)
+    ) = service.findCustomerByCustomer(customer)
 
     @PostMapping
     fun create(

@@ -1,6 +1,7 @@
 package com.tqi.challenge.pix.service
 
 import com.tqi.challenge.pix.domain.entity.Customers
+import com.tqi.challenge.pix.exception.CustomerNotFoundException
 import com.tqi.challenge.pix.repository.CustomerRepository
 import com.tqi.challenge.pix.web.response.CustomerResponse
 import com.tqi.challenge.pix.web.response.toCustomerResponse
@@ -12,7 +13,12 @@ class CustomerService(
     @Autowired
     val database: CustomerRepository,
 ) {
-    fun findCustomerByCustomer(customer: String): CustomerResponse = database.findCustomerByCustomer(customer).toCustomerResponse()
+    fun findCustomerByCustomer(customer: String) =
+        try {
+            database.findCustomerByCustomer(customer).toCustomerResponse()
+        } catch (e: Exception) {
+            throw CustomerNotFoundException("Customer not found $customer")
+        }
 
     fun create(request: Customers): CustomerResponse = database.save(request).toCustomerResponse()
 
