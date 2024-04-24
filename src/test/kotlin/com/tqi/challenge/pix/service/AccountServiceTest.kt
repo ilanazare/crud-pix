@@ -29,7 +29,7 @@ class AccountServiceTest(
 
         val response = accountService.findListAccountByCustomer(customer)
         assertEquals(response[0].account, "5676543-0")
-        assertEquals(response[0].bank, "Banco do brazil")
+        assertEquals(response[0].bank, enumValueOf("BANK_OF_BRAZIL"))
         response[0].payment?.get(0)?.let { assertEquals(it.pixKey, "77872339533") }
         verify { accountRepository.findListAccountByCustomer(customer) }
     }
@@ -38,7 +38,7 @@ class AccountServiceTest(
         listOf(
             Accounts(
                 customer = "23454345090",
-                bank = "Banco do brazil",
+                bank = enumValueOf("BANK_OF_BRAZIL"),
                 agency = "23456-8",
                 account = "5676543-0",
                 payment = listOf(buildPayment()),
@@ -49,7 +49,7 @@ class AccountServiceTest(
         Payment(
             customer = "23454345090",
             account = "23456-8",
-            pixType = "CPF",
+            pixType = enumValueOf("CPF"),
             pixKey = "77872339533",
         )
 }

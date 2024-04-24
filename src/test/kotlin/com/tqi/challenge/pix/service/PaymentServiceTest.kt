@@ -37,7 +37,7 @@ class PaymentServiceTest(
             Payment(
                 customer = "23454345090",
                 account = "23456-8",
-                pixType = "CPF",
+                pixType = enumValueOf("CPF"),
                 pixKey = "77872339533",
             ),
         )

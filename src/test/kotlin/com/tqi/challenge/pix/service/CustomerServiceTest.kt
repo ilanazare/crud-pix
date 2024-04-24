@@ -48,7 +48,7 @@ class CustomerServiceTest(
     private fun buildAccount() =
         Accounts(
             customer = "23454345090",
-            bank = "Banco do brazil",
+            bank = enumValueOf("BANK_OF_BRAZIL"),
             agency = "23456-8",
             account = "5676543-0",
             payment = listOf(buildPayment()),
@@ -58,7 +58,7 @@ class CustomerServiceTest(
         Payment(
             customer = "23454345090",
             account = "23456-8",
-            pixType = "CPF",
+            pixType = enumValueOf("CPF"),
             pixKey = "77872339533",
         )
 }
