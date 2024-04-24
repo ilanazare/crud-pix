@@ -9,5 +9,3 @@ CREATE TABLE accounts (
    PRIMARY KEY (customer)
 ) ENGINE = InnoDB;
 
-INSERT INTO accounts(customer, bank, agency, account) VALUES ('23454345090', 'BANCO_DO_BRAZIL', '3454-4', '8987769-0');
-INSERT INTO accounts(customer, bank, agency, account) VALUES ('90987876765', 'PAG_BANK', '3456-7' ,'8987650-8');
