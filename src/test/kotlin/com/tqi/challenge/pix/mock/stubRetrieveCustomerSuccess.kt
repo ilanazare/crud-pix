@@ -6,27 +6,27 @@ import org.springframework.http.HttpStatus
 
 fun stubRetrieveCustomerSuccess(customer: String): StubMapping =
     WireMock.stubFor(
-        WireMock.get("/customer/2345434501000")
+        WireMock.get("/customer/$customer")
             .willReturn(
                 WireMock.aResponse()
                     .withStatus(HttpStatus.OK.value())
                     .withBody(
                         """
                         {
-                        "customer": "2345434501000",
+                        "customer": $customer,
                         "name": "iva luis",
                         "cpf": "77872339587",
                         "email": "iva@hotmail",
                         "phone": "71984376654",
                         "account": [
                         {
-                        "customer": "2345434501000",
+                        "customer": $customer,
                         "bank": "BANCO_DO_BRAZIL",
                         "agency": "3454-4",
                         "account": "8987769-0",
                         "payment": [
                         {
-                        "customer": "2345434501000",
+                        "customer": $customer,
                         "account": "8987769-0",
                         "pixType": "PHONE",
                         "pixKey": "71965654334"
