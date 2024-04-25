@@ -1,0 +1,36 @@
+{
+  "request": {
+    "urlPathPattern": "/customer/(23454345090)",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody":
+    {
+      "customer": "23454345090",
+      "name": "iva luis",
+      "cpf": "77872339587",
+      "email": "iva@hotmail",
+      "phone": "71984376654",
+      "account": [
+        {
+          "customer": "23454345090",
+          "bank": "BANCO_DO_BRAZIL",
+          "agency": "3454-4",
+          "account": "8987769-0",
+          "payment": [
+            {
+              "customer": "23454345090",
+              "account": "8987769-0",
+              "pixType": "PHONE",
+              "pixKey": "71965654334"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
