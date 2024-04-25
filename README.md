@@ -4,10 +4,10 @@
 ### http://localhost:8080/swagger-ui/index.html#/
 
 ### use json in /customer/{customer} for test
-
+...
 {
 "customer": "2345434501000",
-"name": "daniela faguendes oliveira",
+"name": "daniela",
 "cpf": "7787233958790",
 "email": "iva@hotmail",
 "phone": "71984376654",
@@ -28,3 +28,4 @@
 }
 ]
 }
+...
