@@ -18,7 +18,7 @@ class AccountService(
 ) {
     fun findListAccountByCustomer(customer: String) =
         accountRepository.findListAccountByCustomer(customer)
-            .takeIf { it.isNotEmpty() } ?: throw ListAccountNotFound("Account not found to customer")
+            .takeIf { it.isNotEmpty() } ?: throw ListAccountNotFound("Account not found to customer, $customer")
 
     fun update(request: Accounts) =
         try {

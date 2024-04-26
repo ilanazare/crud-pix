@@ -1,8 +1,10 @@
 package com.tqi.challenge.pix.service
 
 import com.tqi.challenge.pix.domain.entity.Accounts
+import com.tqi.challenge.pix.domain.entity.Customers
 import com.tqi.challenge.pix.domain.entity.Payment
 import com.tqi.challenge.pix.repository.AccountRepository
+import com.tqi.challenge.pix.repository.CustomerRepository
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
@@ -16,6 +18,8 @@ import kotlin.test.assertEquals
 class AccountServiceTest(
     @MockK
     private val accountRepository: AccountRepository,
+    @MockK
+    private val customerRepository: CustomerRepository,
     @InjectMockKs
     private val accountService: AccountService,
 ) {
@@ -27,12 +31,26 @@ class AccountServiceTest(
             accountRepository.findListAccountByCustomer(customer)
         } returns buildAccount()
 
+        every {
+            accountRepository.findListAccountByCustomer(customer)
+        } returns buildAccount()
+
         val response = accountService.findListAccountByCustomer(customer)
         assertEquals(response[0].account, "5676543-0")
         assertEquals(response[0].bank, enumValueOf("BANK_OF_BRAZIL"))
         response[0].payment?.get(0)?.let { assertEquals(it.pixKey, "77872339533") }
         verify { accountRepository.findListAccountByCustomer(customer) }
     }
+
+    private fun buildCustomer() =
+        Customers(
+            customer = "23454345090",
+            name = "iva luis",
+            cpf = "77872339587",
+            email = "iva@hotmail",
+            phone = "71984376654",
+            account = buildAccount(),
+        )
 
     private fun buildAccount(): List<Accounts> =
         listOf(
