@@ -19,6 +19,11 @@ class AccountController(
         @PathVariable customer: String,
     ) = accountService.findListAccountByCustomer(customer)
 
+//    @PostMapping
+//    fun create(
+//        @RequestBody request: Accounts,
+//    ) = accountService.create(request)
+
     @PutMapping
     fun update(
         @RequestBody request: Accounts,
