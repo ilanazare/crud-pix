@@ -7,5 +7,10 @@ import java.util.Optional
 interface AccountRepository : CrudRepository<Accounts, String> {
     fun findListAccountByCustomer(customer: String): List<Accounts> = findListAccountByCustomer(customer)
 
-    fun findAccountByAccount(account: String): Optional<Accounts> = findAccountByAccount(account)
+    fun findAccountByCustomer(customer: String): Optional<Accounts> = findAccountByCustomer(customer)
+//
+//    fun save(
+//        request: Accounts,
+//        customer: String,
+//    ): AccountsResponse = save(request, customer)
 }

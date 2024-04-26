@@ -4,7 +4,7 @@ import com.tqi.challenge.pix.domain.entity.Accounts
 import com.tqi.challenge.pix.domain.entity.Payment
 import com.tqi.challenge.pix.domain.enum.BankAccountEnum
 
-data class RetrieveAccountRequest(
+data class AccountRequest(
     val customer: String,
     val bank: BankAccountEnum,
     val agency: String,
@@ -12,8 +12,8 @@ data class RetrieveAccountRequest(
     val payment: List<Payment>?,
 )
 
-fun Accounts.toAccountRequest() =
-    RetrieveAccountRequest(
+fun AccountRequest.toAccountRequest() =
+    Accounts(
         customer,
         bank,
         agency,
