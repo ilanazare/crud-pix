@@ -20,5 +20,5 @@ data class Customers(
     val phone: String,
     @OneToMany(cascade = [CascadeType.ALL])
     @JoinColumn(name = "customer")
-    val account: List<Accounts>,
+    val account: List<Accounts>?,
 )

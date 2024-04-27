@@ -22,11 +22,14 @@ class CustomerService(
 
     fun create(request: Customers): CustomerResponse = database.save(request).toCustomerResponse()
 
-    fun update(request: Customers): String {
-        val customer = findCustomerByCustomer(request.customer).customer
-        database.save(request).toCustomerResponse().takeIf {
-            it.customer == customer
+    fun update(request: Customers) =
+        try {
+            val customer = findCustomerByCustomer(request.customer).customer
+
+            database.save(request).toCustomerResponse().takeIf {
+                it.customer == customer
+            }
+        } catch (e: Exception) {
+            throw CustomerNotFoundException("Error condition for customer update")
         }
-        return customer
-    }
 }

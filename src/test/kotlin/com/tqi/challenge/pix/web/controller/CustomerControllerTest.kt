@@ -35,7 +35,7 @@ class CustomerControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/customer/$customer"))
             .andExpect(MockMvcResultMatchers.status().isOk)
             .andExpect(jsonPath("$.name").value("daniela"))
-            .andExpect(jsonPath("$.account[0].bank").value("BANK_OF_BRAZIL"))
+            .andExpect(jsonPath("$.account[0].bank").value("NUBANK"))
             .andExpect(jsonPath("$.account[0].payment[0].pixType").value("PHONE_NUMBER"))
     }
 }

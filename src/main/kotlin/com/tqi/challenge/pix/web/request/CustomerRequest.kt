@@ -9,7 +9,7 @@ data class CustomerRequest(
     val cpf: String,
     val email: String,
     val phone: String,
-    val account: List<Accounts>,
+    val account: List<Accounts>?,
 )
 
 fun CustomerRequest.toCustomerRequest() =

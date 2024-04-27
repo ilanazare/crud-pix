@@ -18,18 +18,16 @@ class AccountService(
 ) {
     fun findListAccountByCustomer(customer: String) =
         accountRepository.findListAccountByCustomer(customer)
-            .takeIf { it.isNotEmpty() } ?: throw ListAccountNotFound("Account not found to customer, $customer")
+            .takeIf { it.isNotEmpty() } ?: throw ListAccountNotFound("Account not found for customer, $customer")
 
     fun update(request: Accounts) =
         try {
+            val customer = customerRepository.findCustomerByCustomer(request.customer).customer
             accountRepository.save(request).toAccountResponse()
-                .takeIf { !customerRepository.findCustomerByCustomer(request.customer).customer.equals(null) }
+                .takeIf {
+                    customer == request.customer
+                }
         } catch (e: Exception) {
-            throw CustomerNotFoundException("Customer not found to update account")
+            throw CustomerNotFoundException("Error condition for customer update")
         }
-
-//    fun create(accounts: Accounts) =
-//        accountRepository.save(accounts).toAccountResponse()
-//            .takeIf { !customerRepository.findCustomerByCustomer(accounts.customer).customer.equals(null) }
-//            ?: throw CustomerNotFoundException("Customer not found to create account")
 }

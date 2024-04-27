@@ -32,7 +32,5 @@ class CustomerController(
     @PutMapping
     fun update(
         @RequestBody request: CustomerRequest,
-    ): String {
-        return service.update(request.toCustomerRequest())
-    }
+    ) = service.update(request.toCustomerRequest())
 }
