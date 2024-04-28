@@ -2,7 +2,9 @@ package com.tqi.challenge.pix.web.request
 
 import com.tqi.challenge.pix.domain.entity.Accounts
 import com.tqi.challenge.pix.domain.entity.Customers
+import lombok.Data
 
+@Data
 data class CustomerRequest(
     val customer: String,
     val name: String,

@@ -32,8 +32,8 @@ class AccountServiceTest(
         } returns buildAccount()
 
         every {
-            accountRepository.findListAccountByCustomer(customer)
-        } returns buildAccount()
+            customerRepository.findCustomerByCustomer(customer)
+        } returns buildCustomer()
 
         val response = accountService.findListAccountByCustomer(customer)
         assertEquals(response[0].account, "5676543-0")

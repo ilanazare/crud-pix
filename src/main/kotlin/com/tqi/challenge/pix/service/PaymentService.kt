@@ -1,6 +1,6 @@
 package com.tqi.challenge.pix.service
 
-import com.tqi.challenge.pix.domain.entity.Payment
+import com.tqi.challenge.pix.exception.PaymentNotFoundException
 import com.tqi.challenge.pix.repository.PaymentRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -10,14 +10,7 @@ class PaymentService(
     @Autowired
     val paymentRepository: PaymentRepository,
 ) {
-    fun findListPaymentByCustomer(customer: String): List<Payment> = paymentRepository.findListPaymentByCustomer(customer)
-
-    fun updatePaymentByCustomer(entity: Payment): Payment {
-        if (paymentRepository.findPaymentByCustomer(entity.customer).equals(null)) {
-            paymentRepository.save(entity)
-        }
-        throw Exception()
-    }
-
-    fun create(entity: Payment): Unit = paymentRepository.save(entity)
+    fun findListPaymentByCustomer(customer: String) =
+        paymentRepository.findListPaymentByCustomer(customer)
+            .takeIf { it.isNotEmpty() } ?: throw PaymentNotFoundException("Payment not found for customer, $customer")
 }

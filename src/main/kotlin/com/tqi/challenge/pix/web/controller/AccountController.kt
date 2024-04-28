@@ -1,7 +1,8 @@
 package com.tqi.challenge.pix.web.controller
 
-import com.tqi.challenge.pix.domain.entity.Accounts
 import com.tqi.challenge.pix.service.AccountService
+import com.tqi.challenge.pix.web.request.AccountRequest
+import com.tqi.challenge.pix.web.request.toAccountRequest
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PutMapping
@@ -19,13 +20,8 @@ class AccountController(
         @PathVariable customer: String,
     ) = accountService.findListAccountByCustomer(customer)
 
-//    @PostMapping
-//    fun create(
-//        @RequestBody request: Accounts,
-//    ) = accountService.create(request)
-
     @PutMapping
     fun update(
-        @RequestBody request: Accounts,
-    ) = accountService.update(request)
+        @RequestBody request: AccountRequest,
+    ) = accountService.update(request.toAccountRequest())
 }
