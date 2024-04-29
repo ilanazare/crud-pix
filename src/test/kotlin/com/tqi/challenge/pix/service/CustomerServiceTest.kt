@@ -35,6 +35,26 @@ class CustomerServiceTest(
         verify { customerRepository.findCustomerByCustomer(customer) }
     }
 
+    @Test
+    fun `tests customer post successfully `() {
+        val request = buildCustomer()
+
+        every {
+            customerRepository.save(request)
+        } returns buildCustomer()
+
+        val customerSaved = customerService.create(request)
+
+        assertEquals(request.customer, customerSaved.customer)
+        request.account?.get(0)?.let { assertEquals(it.account, "5676543-0") }
+        request.account?.get(0)?.payment?.get(0)?.let { assertEquals(it.pixKey, "77872339533") }
+        verify { customerRepository.save(request) }
+    }
+
+    @Test
+    fun `tests customer update successfully `() {
+    }
+
     private fun buildCustomer() =
         Customers(
             customer = "23454345090",
