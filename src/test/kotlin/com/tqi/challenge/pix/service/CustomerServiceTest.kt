@@ -65,9 +65,16 @@ class CustomerServiceTest(
             customerRepository.save(request.toCustomerRequest())
         } returns buildUpdateCustomerResponse()
 
-        customerService.update(request.toCustomerRequest())
+        val result = customerService.update(request.toCustomerRequest())
 
-        assertEquals(request.name, "iva luis nazareth")
+        if (result != null) {
+            assertEquals(result.name, request.name)
+            result.account?.get(0)?.let { request.account?.get(0)?.let { it1 -> assertEquals(it.bank, it1.bank) } }
+            result.account?.get(0)?.payment?.get(0)
+                ?.let { request.account?.get(0)?.payment?.get(0)?.let { it1 -> assertEquals(it.pixType, it1.pixType) } }
+        }
+        verify { customerRepository.findCustomerByCustomer(customer) }
+        verify { customerRepository.save(request.toCustomerRequest()) }
     }
 
     private fun buildCustomer() =
