@@ -1,6 +1,10 @@
 server:
   port: 8080
 spring:
+  security:
+    user:
+      name: challenge
+      password: challenge
   application:
     name: challenge-crud-pix
   datasource:
