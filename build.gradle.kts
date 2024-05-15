@@ -36,6 +36,7 @@ dependencies {
     implementation("org.springframework.data:spring-data-relational:3.2.1")
     implementation("org.springframework:spring-webflux:6.1.4")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0")
+    implementation("org.springframework.security:spring-security-core:6.2.3")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("com.mysql:mysql-connector-j")
@@ -45,6 +46,7 @@ dependencies {
     testImplementation(kotlin("test-junit5"))
     testImplementation("io.mockk:mockk:1.13.10")
     testImplementation("org.springframework.cloud:spring-cloud-starter-contract-stub-runner")
+
 }
 
 dependencyManagement {
