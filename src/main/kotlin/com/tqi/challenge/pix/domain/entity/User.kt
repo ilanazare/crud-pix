@@ -1,6 +1,5 @@
 package com.tqi.challenge.pix.domain.entity
 
-import com.tqi.challenge.pix.domain.enum.PaymentTypeEnum
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
@@ -13,6 +12,6 @@ data class User(
     @Column(name = "customer", unique = true)
     var customer: String,
     val email: String,
-    val password: PaymentTypeEnum,
+    val password: String,
     val role: String,
 )
