@@ -46,7 +46,6 @@ dependencies {
     testImplementation(kotlin("test-junit5"))
     testImplementation("io.mockk:mockk:1.13.10")
     testImplementation("org.springframework.cloud:spring-cloud-starter-contract-stub-runner")
-
 }
 
 dependencyManagement {
