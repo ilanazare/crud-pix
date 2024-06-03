@@ -37,6 +37,8 @@ dependencies {
     implementation("org.springframework:spring-webflux:6.1.4")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0")
     implementation("org.springframework.boot:spring-boot-starter-security")
+//    implementation("org.springframework.security:spring-security-web")
+//    implementation("org.springframework.security:spring-security-config")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("com.mysql:mysql-connector-j")
@@ -46,6 +48,8 @@ dependencies {
     testImplementation(kotlin("test-junit5"))
     testImplementation("io.mockk:mockk:1.13.10")
     testImplementation("org.springframework.cloud:spring-cloud-starter-contract-stub-runner")
+//    testImplementation("org.springframework.security:spring-security-test")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 dependencyManagement {
